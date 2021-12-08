@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="3" passed="3">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="288340" started-at="2021-12-08T02:02:08Z" finished-at="2021-12-08T02:06:57Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="288340" started-at="2021-12-08T02:02:08Z" finished-at="2021-12-08T02:06:57Z">
+      <class name="com.cmcc.p.poc.automation.test.Set_manager_member">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.cmcc.p.poc.automation.test.Set_manager_member@3bd40a57]" name="setUp" is-config="true" duration-ms="54" started-at="2021-12-08T10:02:08Z" finished-at="2021-12-08T10:02:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="createAppiumServer()[pri:0, instance:com.cmcc.p.poc.automation.test.Set_manager_member@3bd40a57]" name="createAppiumServer" is-config="true" duration-ms="9339" started-at="2021-12-08T10:02:08Z" finished-at="2021-12-08T10:02:18Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createAppiumServer -->
+        <test-method status="PASS" signature="getFirst(java.lang.String, java.lang.String)[pri:0, instance:com.cmcc.p.poc.automation.test.Set_manager_member@3bd40a57]" name="getFirst" duration-ms="150" started-at="2021-12-08T10:02:18Z" data-provider="loginSuccess" finished-at="2021-12-08T10:02:19Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[15410000041]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[...999qaz]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getFirst -->
+        <test-method status="PASS" signature="tearDwon()[pri:0, instance:com.cmcc.p.poc.automation.test.Set_manager_member@3bd40a57]" name="tearDwon" is-config="true" duration-ms="19" started-at="2021-12-08T10:02:19Z" finished-at="2021-12-08T10:02:19Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDwon -->
+        <test-method status="PASS" signature="getFirst2(java.lang.String, java.lang.String)[pri:0, instance:com.cmcc.p.poc.automation.test.Set_manager_member@3bd40a57]" name="getFirst2" duration-ms="5" started-at="2021-12-08T10:02:19Z" data-provider="loginSuccess" finished-at="2021-12-08T10:02:19Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[15410000042]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[...999qaz]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getFirst2 -->
+        <test-method status="PASS" signature="tearDwon()[pri:0, instance:com.cmcc.p.poc.automation.test.Set_manager_member@3bd40a57]" name="tearDwon" is-config="true" duration-ms="1" started-at="2021-12-08T10:02:19Z" finished-at="2021-12-08T10:02:19Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDwon -->
+        <test-method status="PASS" signature="test()[pri:0, instance:com.cmcc.p.poc.automation.test.Set_manager_member@3bd40a57]" name="test" duration-ms="276494" started-at="2021-12-08T10:02:19Z" finished-at="2021-12-08T10:06:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test -->
+        <test-method status="PASS" signature="tearDwon()[pri:0, instance:com.cmcc.p.poc.automation.test.Set_manager_member@3bd40a57]" name="tearDwon" is-config="true" duration-ms="4" started-at="2021-12-08T10:06:55Z" finished-at="2021-12-08T10:06:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDwon -->
+        <test-method status="PASS" signature="tearDownAfter()[pri:0, instance:com.cmcc.p.poc.automation.test.Set_manager_member@3bd40a57]" name="tearDownAfter" is-config="true" duration-ms="1259" started-at="2021-12-08T10:06:55Z" finished-at="2021-12-08T10:06:57Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownAfter -->
+      </class> <!-- com.cmcc.p.poc.automation.test.Set_manager_member -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

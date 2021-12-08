@@ -1,0 +1,63 @@
+package com.cmcc.p.poc.automation.test;
+
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import com.cmcc.p.poc.automation.core.AbstractPage;
+import com.cmcc.p.poc.automation.core.AbstractTest;
+import com.cmcc.p.poc.automation.core.Utils;
+import com.cmcc.p.poc.automation.pagefunction.FriendPageAction;
+import com.cmcc.p.poc.automation.pagefunction.mynew;
+
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
+@Epic("好友页面-添加好友成功和删除好友成功")
+@Feature("开始创造测试数据")
+public class FriendmoduleFlowTest extends AbstractTest {
+	private String casename = "检查添加好友功能";
+	static String user2;
+	static String pwd2;
+	static String user1;
+	static String pwd1;
+
+	@Override
+	@BeforeTest
+	public void setUp() {
+		Utils.print("casename: " + casename);
+	}
+
+	@Test(dataProvider = "loginSuccess", alwaysRun = true, dataProviderClass = DataPro.class)
+	// 账号密码登录
+	public static void getsecond(String account, String password) {
+		user2 = account;
+		pwd2 = password;
+	}
+
+	@Test(dataProvider = "loginSuccess", alwaysRun = true, dataProviderClass = DataPro.class)
+	public static void getFirst(String account, String password) {
+		user1 = account;
+		pwd1 = password;
+	}
+	@Story("开始执行测试用例")
+	@Test
+	public void test() {
+		// 登录
+		AbstractPage.login(user1,pwd1);
+		// 添加好友
+		mynew.AddFriend(user2);
+		// 退出登录
+		AbstractPage.logout();
+		// 好友账号登录
+		AbstractPage.login(user2, pwd2);
+		// 同意好友申请
+		mynew.acceptFriend();
+	    Utils.waitDefaultTime();
+	    //删除该好友
+		FriendPageAction.deleteFirstFriend2();
+			    
+	
+
+	}
+
+}

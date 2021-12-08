@@ -1,0 +1,93 @@
+package com.cmcc.p.poc.automation.test;
+
+
+
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import com.cmcc.p.poc.automation.core.AbstractPage;
+import com.cmcc.p.poc.automation.core.AbstractTest;
+import com.cmcc.p.poc.automation.core.Utils;
+import com.cmcc.p.poc.automation.pagefunction.AbstractGroupFunction;
+
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
+@Epic("群组对讲页面-群组内-群口令加入和主动退出")
+@Feature("开始创造测试数据")
+public class JoinAndExitGroup extends AbstractTest {
+
+	private String casename = "群口令加入主动退出";
+
+	static String user2;
+	static String pwd2;
+	static String user1;
+	static String pwd1;
+	static String groupname1;
+	static String groupnamenew;
+
+	static String token;
+	
+	@Override
+	@BeforeTest
+	public void setUp() {
+		Utils.print("casename: " + casename);
+	}
+
+	@Test(dataProvider = "loginSuccess", alwaysRun = true, dataProviderClass = DataPro.class)
+	// 账号密码登录
+	public static void getsecond(String account, String password) {
+
+		user2 = account;
+		pwd2 = password;
+
+	}
+
+	@Test(dataProvider = "loginSuccess", alwaysRun = true, dataProviderClass = DataPro.class)
+	public static void getFirst(String account, String password) {
+
+		user1 = account;
+
+		pwd1 = password;
+
+	}
+	@Story("开始执行测试用例")
+	@Test
+	public void test() {
+		//登录
+		AbstractPage.login(user2, pwd2);
+		// 新建群组
+		Utils.waitDefaultTime();
+		// 点击群组
+		AbstractPage.findElementByName("群组").click();
+		Utils.waitDefaultTime();
+		//创建群组
+		AbstractGroupFunction.newgroup3();
+		// 点击右上角的...
+		AbstractPage.findElementById("com.cmcc.p.poc:id/ib_group_info").click();
+		// 用户A点击分享群口令
+		AbstractPage.findElementById("com.cmcc.p.poc:id/rl_invivate_command").click();
+		String code = AbstractPage.findElementById("com.cmcc.p.poc:id/token").getText();
+		System.out.println("群口令：" + code);
+		Utils.waitDefaultTime();
+		// 点击取消
+		AbstractPage.findElementByName("取消").click();
+		// 点击返回，返回到对讲页面
+		AbstractPage.findElementById("com.cmcc.p.poc:id/title_left_text").click();
+		// 用户A退出登录
+		AbstractPage.logout();
+		// 用户B登录
+		AbstractPage.login(user1, pwd1);
+		// 群口令加入，
+		AbstractGroupFunction.joingroup(code);
+		//退出群组
+		AbstractGroupFunction.dismissgroup1();
+		Utils.print(casename + "退出群组---->PASS");
+		// B退出登录
+		AbstractPage.logout();
+		// A登录
+		AbstractPage.login(user2, pwd2);
+		// 解散群组
+		AbstractGroupFunction.dismissgroup1();	        
+		}
+}
